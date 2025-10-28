@@ -36,11 +36,11 @@ const ActionNode = memo(({ data, id }: ActionNodeProps) => {
 
   return (
     <div className="min-w-[220px] bg-card rounded-lg shadow-lg border-2 border-border overflow-hidden">
-      <Handle type="target" position={Position.Top} className="!bg-primary w-3 h-3" />
+      <Handle type="target" position={Position.Right} className="!bg-primary w-3 h-3" />
       
       <div className={`bg-gradient-to-r ${getNodeColor()} p-3 flex items-center justify-between`}>
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-white rounded-full" />
+          <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 w-2 h-2 bg-white rounded-full" />
           <span className="text-white font-semibold text-sm">{data.label}</span>
         </div>
         <div className="flex gap-1">
@@ -97,7 +97,7 @@ const ActionNode = memo(({ data, id }: ActionNodeProps) => {
         </div>
       )}
 
-      <Handle type="source" position={Position.Bottom} className="!bg-primary w-3 h-3" />
+      <Handle type="source" position={Position.Left} className="!bg-primary w-3 h-3" />
     </div>
   );
 });
