@@ -47,6 +47,7 @@ const Index = () => {
 
     setIsExecuting(true);
     toast.info("Executing workflow...");
+    console.log("Exported workflow:", JSON.stringify(workflow));
 
     try {
       // Mock backend call - replace with real endpoint

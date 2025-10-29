@@ -40,7 +40,7 @@ const ActionNode = memo(({ data, id }: ActionNodeProps) => {
       
       <div className={`bg-gradient-to-r ${getNodeColor()} p-3 flex items-center justify-between`}>
         <div className="flex items-center gap-2">
-          <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 w-2 h-2 bg-white rounded-full" />
+          {/* <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-1/2 w-2 h-2 bg-white rounded-full" /> */}
           <span className="text-white font-semibold text-sm">{data.label}</span>
         </div>
         <div className="flex gap-1">
