@@ -14,6 +14,12 @@ export interface Workflow {
   edges: WorkflowEdge[];
 }
 
+export interface SingleNodeExecution {
+    node: WorkflowNode;
+    address: string;
+    //  privateKey: string;
+}
+
 export function getExecutionOrder(workflow: Workflow): WorkflowNode[] {
   const nodeMap = new Map<string, WorkflowNode>();
   const inDegree = new Map<string, number>();
