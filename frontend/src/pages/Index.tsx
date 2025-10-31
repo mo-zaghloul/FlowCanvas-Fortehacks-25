@@ -1,5 +1,9 @@
 import { useCallback, useState } from "react";
+<<<<<<< HEAD
 import ReactFlow, { Background, Controls, MiniMap } from "reactflow";
+=======
+import ReactFlow, { Background, Controls, MiniMap, BackgroundVariant } from "reactflow";
+>>>>>>> 8843aa9 (Maintaining performance, enhancing styles and adding Landing page)
 import "reactflow/dist/style.css";
 import axios from "axios";
 import { Sidebar } from "@/components/Sidebar";
@@ -25,6 +29,11 @@ const Index = () => {
     saveWorkflow,
     resetWorkflow,
     exportWorkflow,
+<<<<<<< HEAD
+=======
+    nodeCount,
+    edgeCount,
+>>>>>>> 8843aa9 (Maintaining performance, enhancing styles and adding Landing page)
   } = useWorkflow();
 
   const [isExecuting, setIsExecuting] = useState(false);
@@ -69,16 +78,39 @@ const Index = () => {
   }, [exportWorkflow]);
 
   const handleSave = useCallback(() => {
+<<<<<<< HEAD
     saveWorkflow();
+=======
+    const result = saveWorkflow();
+>>>>>>> 8843aa9 (Maintaining performance, enhancing styles and adding Landing page)
     toast.success("Workflow saved!");
   }, [saveWorkflow]);
 
   const handleReset = useCallback(() => {
+<<<<<<< HEAD
     if (confirm("Reset canvas? This will clear all nodes and edges.")) {
       resetWorkflow();
       toast.info("Canvas reset");
     }
   }, [resetWorkflow]);
+=======
+    if (nodeCount === 0) {
+      toast.info("Canvas is already empty");
+      return;
+    }
+
+    toast(`Reset workflow? This will remove ${nodeCount} nodes and ${edgeCount} connections.`, {
+      action: {
+        label: "Reset",
+        onClick: () => {
+          resetWorkflow();
+          toast.info("Workflow reset successfully");
+        },
+      },
+      duration: 8000,
+    });
+  }, [resetWorkflow, nodeCount, edgeCount]);
+>>>>>>> 8843aa9 (Maintaining performance, enhancing styles and adding Landing page)
 
   // Enrich nodes with callbacks
   const enrichedNodes = nodes.map((node) => ({
@@ -91,7 +123,11 @@ const Index = () => {
   }));
 
   return (
+<<<<<<< HEAD
     <div className="flex h-screen w-full bg-background">
+=======
+    <div className="flex h-screen w-full bg-slate-900">
+>>>>>>> 8843aa9 (Maintaining performance, enhancing styles and adding Landing page)
       <Sidebar onAddNode={handleAddNode} />
       
       <div className="flex-1 relative">
@@ -100,6 +136,11 @@ const Index = () => {
           onSave={handleSave}
           onReset={handleReset}
           isExecuting={isExecuting}
+<<<<<<< HEAD
+=======
+          nodeCount={nodeCount}
+          edgeCount={edgeCount}
+>>>>>>> 8843aa9 (Maintaining performance, enhancing styles and adding Landing page)
         />
 
         <ReactFlow
@@ -110,6 +151,7 @@ const Index = () => {
           onConnect={onConnect}
           nodeTypes={nodeTypes}
           fitView
+<<<<<<< HEAD
           className="bg-gradient-to-br from-background to-muted/20"
         >
           <Background gap={20} size={1} color="hsl(var(--border))" />
@@ -128,9 +170,81 @@ const Index = () => {
             }}
           />
         </ReactFlow>
+=======
+          className="bg-gradient-to-br from-slate-900 to-slate-800"
+          minZoom={0.2}
+          maxZoom={2}
+          defaultEdgeOptions={{
+            type: 'smoothstep',
+            style: {
+              strokeWidth: 2,
+              stroke: '#3b82f6',
+            },
+          }}
+          connectionLineStyle={{
+            strokeWidth: 2,
+            stroke: '#3b82f6',
+          }}
+          selectNodesOnDrag={true}
+          nodesDraggable={true}
+          nodesConnectable={true}
+          elementsSelectable={true}
+          snapToGrid={false}
+          deleteKeyCode={["Delete", "Backspace"]}
+        >
+          <Background 
+            gap={20} 
+            size={1} 
+            color="#475569"
+            variant={BackgroundVariant.Dots}
+            className="bg-slate-900"
+          />
+          <Controls 
+            className="controls-dark bg-slate-800/80 backdrop-blur-sm border border-slate-600 rounded-lg shadow-xl"
+            showInteractive={true}
+          />
+          <MiniMap
+            className="bg-slate-800/80 backdrop-blur-sm border border-slate-600 rounded-lg shadow-xl"
+            nodeColor={(node) => {
+              switch (node.data?.type) {
+                case "swap": return '#3b82f6';
+                case "stake": return '#8b5cf6';
+                case "transfer": return '#10b981';
+                case "claim": return '#f59e0b';
+                case "schedule": return '#6366f1';
+                default: return '#475569';
+              }
+            }}
+            nodeStrokeWidth={2}
+            maskColor="rgba(15, 23, 42, 0.6)"
+            position="bottom-right"
+          />
+        </ReactFlow>
+
+        {/* Add custom CSS for control buttons */}
+        <style>{`
+          .controls-dark button {
+            background-color: #334155 !important;
+            border: 1px solid #475569 !important;
+            color: #cbd5e1 !important;
+            border-radius: 4px !important;
+          }
+          .controls-dark button:hover {
+            background-color: #475569 !important;
+            color: #f1f5f9 !important;
+          }
+          .controls-dark button:active {
+            background-color: #3b82f6 !important;
+          }
+        `}</style>
+>>>>>>> 8843aa9 (Maintaining performance, enhancing styles and adding Landing page)
       </div>
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default Index;
+=======
+export default Index;
+>>>>>>> 8843aa9 (Maintaining performance, enhancing styles and adding Landing page)
