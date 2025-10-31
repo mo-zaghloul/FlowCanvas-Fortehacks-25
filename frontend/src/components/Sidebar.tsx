@@ -2,6 +2,7 @@ import { ArrowRightLeft, Coins, Send, Gift, Clock, ChevronLeft, ChevronRight, Pa
 import { ActionBlockType } from "@/types/workflow";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { ProfileManager } from "./ProfileManager";
 
 const actionBlocks: ActionBlockType[] = [
   {
@@ -139,7 +140,9 @@ export const Sidebar = ({ onAddNode }: SidebarProps) => {
             })}
           </div>
         </div>
-
+<div className="pt-4 border-t border-slate-700">
+  <ProfileManager collapsed={isCollapsed} />
+</div>
         {/* How to Use - Only show when expanded */}
         {!isCollapsed && (
           <div className="pt-4 border-t border-slate-700">
