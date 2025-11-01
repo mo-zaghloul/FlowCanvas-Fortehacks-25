@@ -11,6 +11,14 @@ router.post("/", async (req, res) => {
 
     const results = [];
     for (const node of orderedNodes) {
+      // Resolve parameters (replace {{variables}} with actual values)
+      // const resolvedParams = resolveParameters(node.data.params, context);
+      
+      // // Execute the node's Cadence transaction
+      // const result = await executeCadenceTransaction(
+      //   getCadenceTemplate(node.type), 
+      //   resolvedParams
+      // );
       const result = await executeAction(node.type, node.params);
       results.push({ id: node.id, type: node.type, status: "success", result });
     }
