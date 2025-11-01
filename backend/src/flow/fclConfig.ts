@@ -2,6 +2,8 @@ import * as fcl from "@onflow/fcl";
 import * as t from "@onflow/types";
 import elliptic from "elliptic";
 import { createHash } from "crypto";
+  import fs from "fs";
+
 
 export function configureFlow(network: "emulator" | "testnet" = "emulator") {
   if (network === "emulator") {
@@ -45,11 +47,19 @@ export const serviceAuthz = (account: any) => ({
   }),
 });
 
-export async function executeCadenceTransaction(cadenceCode: string, params: any) {
+export async function executeCadenceTransaction(
+  cadenceCode: string,
+  args: ReturnType<typeof fcl.arg>[] = []
+) {
+  try {
+  fs.writeFileSync("cadenceCode.cdc", cadenceCode);
+  } catch (err) {
+    console.error("Error writing Cadence code to file:", err);
+  }
   const txId = await fcl
     .send([
       fcl.transaction(cadenceCode),
-      fcl.args([fcl.arg(params.amount, t.UFix64)]),
+      fcl.args(args),
       fcl.proposer(serviceAuthz),
       fcl.payer(serviceAuthz),
       fcl.authorizations([serviceAuthz]),

@@ -1,0 +1,28 @@
+{
+  "workflow": {
+    "id": "reward-harvest-001",
+    "type": "reward_harvesting",
+    "nodes": [
+      {
+        "type": "source",
+        "params": {
+          "pool_id": 1,
+          "user_address": "0xUSERADDRESS"
+        }
+      },
+      {
+        "type": "swapper",
+        "params": {
+          "in": "A.FlowToken",
+          "out": "A.USDC"
+        }
+      },
+      {
+        "type": "sink",
+        "params": {
+          "max_capacity": 1000.0
+        }
+      }
+    ]
+  }
+}
