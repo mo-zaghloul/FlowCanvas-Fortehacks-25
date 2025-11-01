@@ -1,4 +1,4 @@
-## 🚀 **Flow Canvas**
+## **Flow Canvas**
 
 ![App Preview](image.png)
 
@@ -7,7 +7,6 @@ Instead of writing complex Cadence scripts manually, developers and creators can
 
 The builder then **auto-generates Cadence transaction code** that can run on the **Flow Emulator, Testnet, or Mainnet**, streamlining the process from idea to execution.
 
----
 
 ### **Problem Statement**
 
@@ -27,7 +26,6 @@ Currently, there’s no **visual interface** for Flow Actions — meaning develo
 
 This slows down iteration, increases errors, and limits experimentation with composable DeFi primitives.
 
----
 
 ### **Solution**
 
@@ -46,7 +44,6 @@ Flow Actions Visual Builder bridges this gap by turning **complex Cadence transa
 
 By abstracting away low-level scripting, the builder allows users to **focus on logic, not syntax** — empowering both beginners and advanced developers to create DeFi actions visually.
 
----
 
 ### **Future Plan**
 
