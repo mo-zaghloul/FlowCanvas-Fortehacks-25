@@ -1,73 +1,76 @@
-# Welcome to your Lovable project
+## 🚀 **Flow Canvas**
 
-## Project info
+![App Preview](image.png)
 
-**URL**: https://lovable.dev/projects/3d5d9c29-9bce-4f97-9995-a8b5c6f6dfa7
+Flow Actions Visual Builder is a low-code platform for composing **DeFi workflows on the Flow blockchain** through a visual interface.
+Instead of writing complex Cadence scripts manually, developers and creators can **drag, connect, and configure nodes** representing on-chain actions such as token transfers, swaps, staking, or NFT operations.
 
-## How can I edit this code?
+The builder then **auto-generates Cadence transaction code** that can run on the **Flow Emulator, Testnet, or Mainnet**, streamlining the process from idea to execution.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+### **Problem Statement**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/3d5d9c29-9bce-4f97-9995-a8b5c6f6dfa7) and start prompting.
+Building on Flow often requires deep familiarity with Cadence and the Flow SDK.
+This creates a barrier for:
 
-Changes made via Lovable will be committed automatically to this repo.
+* **Developers** who want to quickly prototype DeFi automations,
+* **Designers or creators** who prefer visual tools, and
+* **Teams** needing clear, auditable workflows for smart contract compositions.
 
-**Use your preferred IDE**
+Currently, there’s no **visual interface** for Flow Actions — meaning developers must manually:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+* Set up transactions,
+* Import contracts,
+* Manage capabilities, and
+* Chain multiple actions together.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+This slows down iteration, increases errors, and limits experimentation with composable DeFi primitives.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### **Solution**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Flow Actions Visual Builder bridges this gap by turning **complex Cadence transactions** into **intuitive visual nodes**.
 
-# Step 3: Install the necessary dependencies.
-npm i
+#### 🔹 Key Features
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+* **Visual Workflow Composer:**
+  Connect nodes like “Vault Source,” “Token Sink,” or “Swapper” to build on-chain flows.
+* **Auto-generated Cadence Code:**
+  Each workflow generates clean, ready-to-deploy Cadence transactions.
+* **Flow Emulator Integration:**
+  Instantly test transactions locally without deploying on-chain.
+* **Node Parameterization:**
+  Configure token types, vault addresses, or min/max withdrawal directly via the UI.
 
-**Edit a file directly in GitHub**
+By abstracting away low-level scripting, the builder allows users to **focus on logic, not syntax** — empowering both beginners and advanced developers to create DeFi actions visually.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+### **Future Plan**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+#### 1. **Export to Cadence**
 
-## What technologies are used for this project?
+* Enable one-click export of the generated workflow into `.cdc` transaction files.
+* Provide code previews for transparency and education.
 
-This project is built with:
+#### 2. **Workflow Templates**
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+* Add prebuilt templates for common flows:
 
-## How can I deploy this project?
+  * Swap tokens (Vault → Swap → Sink)
+  * Stake Flow tokens
+  * Mint and transfer NFTs
+* Allow users to save and share custom templates.
 
-Simply open [Lovable](https://lovable.dev/projects/3d5d9c29-9bce-4f97-9995-a8b5c6f6dfa7) and click on Share -> Publish.
+#### 3. **Advanced Node System**
 
-## Can I connect a custom domain to my Lovable project?
+* Introduce **Sink**, **Swapper**, and **Router** nodes to expand beyond basic token transfers.
+* Add logic nodes (e.g., “If balance > X then…”).
 
-Yes, you can!
+#### 4. **Smart Contract Integration**
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+* Support direct contract interaction and capability borrowing.
+* Connect to Flow Testnet and Mainnet environments.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
